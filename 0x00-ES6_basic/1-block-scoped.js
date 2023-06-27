@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 export default function taskBlock(trueOrFalse) {
-  task = false;
-  task2 = true;
+  var task = false;
+  var task2 = true;
 
   if (trueOrFalse) {
     var task;
