@@ -4,26 +4,26 @@ export default class Pricing {
   constructor(amount, currency) {
     if (typeof amount !== 'number') {
       throw new TypeError('Amount must be a number');
-	}
-	if (!(currency instanceof Currency)) {
+    }
+    if (!(currency instanceof Currency)) {
       throw new TypeError('Currency must be Currency object');
-	}
-	this._amount = amount;
-	this._currency = currency;
+    }
+    this._amount = amount;
+    this._currency = currency;
   }
 
   // setter methods for amount and currency
   set amount(newAmount) {
     if (typeof newAmount !== 'number') {
       throw new TypeError('Amount must be a number');
-	}
+    }
     this._amount = newAmount;
   }
 
   set currency(newCurrency) {
-	if (!(newCurrency instanceof Currency)) {
+    if (!(newCurrency instanceof Currency)) {
       throw new TypeError('Currency must be Currency object');
-	}
+    }
     this._currency = newCurrency;
   }
 
@@ -38,17 +38,17 @@ export default class Pricing {
 
   // method to display price
   displayFullPrice() {
-    return `${this._amount} ${this._currency.displayFullCurrency()}`
+    return `${this._amount} ${this._currency.displayFullCurrency()}`;
   }
 
   // static method to calculate price
   static convertPrice(amount, conversionRate) {
     if (typeof amount !== 'number') {
       throw new TypeError('Amount must be a number');
-	}
-	if (typeof conversionRate !== 'number') {
-      throw new TypeError('Conversion rate must be a number')
-	}
-	return amount * conversionRate;
+    }
+    if (typeof conversionRate !== 'number') {
+      throw new TypeError('Conversion rate must be a number');
+    }
+    return amount * conversionRate;
   }
 }
