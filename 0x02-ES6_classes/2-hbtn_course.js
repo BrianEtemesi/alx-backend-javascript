@@ -19,7 +19,7 @@ export default class HolbertonCourse {
     this._students = students;
   }
 
-// setter methods for name, length and students
+  // setter methods for name, length and students
   set name(setName) {
     if (typeof setName !== 'string') {
       throw new TypeError('Name must be a string');
@@ -44,7 +44,7 @@ export default class HolbertonCourse {
     this._students = setStudents;
   }
 
-// get methods for name, length and students
+  // get methods for name, length and students
   get name() {
     return this._name;
   }
