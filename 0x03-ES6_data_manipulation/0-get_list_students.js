@@ -1,7 +1,7 @@
 export default function getListStudents() {
   const s1 = {
     id: 1,
-    firstName: 'Guilaume',
+    firstName: 'Guillaume',
     location: 'San Francisco',
   };
 
