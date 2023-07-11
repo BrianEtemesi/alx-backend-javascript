@@ -7,18 +7,6 @@ interface Teacher {
   [key: string]: any;
 }
 
-/*
-const teacher3: Teacher = {
-  firstName: 'John',
-  fullTimeEmployee: false,
-  lastName: 'Doe',
-  location: 'London',
-  contract: false,
-};
-
-console.log(teacher3);
-*/
-
 interface Directors extends Teacher {
   numberOfReports: number;
 }
@@ -51,7 +39,3 @@ class StudentClass implements Student {
     return this.firstName;
   }
 }
-
-const student1 = new StudentClass('Brian', 'Etemesi');
-
-console.log(student1.displayName());
