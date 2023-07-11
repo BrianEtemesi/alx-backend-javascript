@@ -45,9 +45,16 @@ function executeWork(employee) {
         return employee.workTeacherTasks();
     }
 }
-var Brian = createEmployee(400);
-var Anto = createEmployee(1000);
-console.log(isDirector(Brian));
-console.log(isDirector(Anto));
-console.log(executeWork(Brian));
-console.log(executeWork(Anto));
+function teachClass(todayClass) {
+    if (todayClass === 'Math') {
+        return 'Teaching Math';
+    }
+    else if (todayClass === 'History') {
+        return 'Teaching History';
+    }
+    else {
+        throw new Error('Invalid subject');
+    }
+}
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
