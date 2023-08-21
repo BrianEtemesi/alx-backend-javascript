@@ -11,7 +11,7 @@ process.stdin.on('readable', () => {
   // Check if there's data in the chunk
   if (chunk !== null) {
     // Print the user's name based on the input chunk
-    process.stdout.write('Your name is: ' + chunk);
+    process.stdout.write(`Your name is: ${chunk}`);
   }
 });
 
