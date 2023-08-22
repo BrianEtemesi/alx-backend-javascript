@@ -3,10 +3,8 @@
 const fs = require('fs');
 
 function countStudents(filePath) {
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      throw new Error('Cannot load the database');
-    }
+  try {
+    const data = fs.readFileSync(filePath, 'utf8');
     const lines = data.trim().split('\n'); // split the file into an array of lines
     const studentData = lines.slice(1); // remove the first line (header)
     console.log(`Number of students: ${studentData.length}`); // print out number of students
@@ -32,7 +30,9 @@ function countStudents(filePath) {
       const num = fields[item].length;
       console.log(`Number of students in ${item}: ${num}. List: ${joinedList}`);
     });
-  });
+  } catch (err) {
+      throw new Error('Cannot load the database');
+    }
 }
 
 module.exports = countStudents;
