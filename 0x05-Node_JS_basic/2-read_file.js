@@ -6,7 +6,6 @@ function countStudents(filePath) {
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
       throw new Error('Cannot load the database');
-      return;
     }
     const lines = data.trim().split('\n'); // split the file into an array of lines
     const studentData = lines.slice(1); // remove the first line (header)
