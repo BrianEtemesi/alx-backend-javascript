@@ -31,8 +31,8 @@ function countStudents(filePath) {
       console.log(`Number of students in ${item}: ${num}. List: ${joinedList}`);
     });
   } catch (err) {
-      throw new Error('Cannot load the database');
-    }
+    throw new Error('Cannot load the database');
+  }
 }
 
 module.exports = countStudents;
