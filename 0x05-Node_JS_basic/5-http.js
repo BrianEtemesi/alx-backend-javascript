@@ -3,7 +3,7 @@
 const fs = require('fs');
 const http = require('http');
 
-const hostname = '10.0.2.15';
+const hostname = '127.0.0.1';
 const port = 1245;
 const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
 
