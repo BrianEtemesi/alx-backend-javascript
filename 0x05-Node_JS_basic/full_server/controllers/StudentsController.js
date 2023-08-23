@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const readDatabase = require('./full_server/utils');
+const readDatabase = require('../utils');
 
 class StudentsController {
   static getAllStudents(req, res) {
@@ -10,14 +10,14 @@ class StudentsController {
         const fields = Object.keys(data);
         fields.forEach((field) => {
           const list = data[field];
-          const joinedList = list.join(',');
+          const joinedList = list.join(', ');
           const num = data[field].length;
           const generalInfo = `Number of students in ${field}: ${num}. List: ${joinedList}`;
           info.push(generalInfo);
         });
         const displayInfo = info.join('\n');
         res.status(200).send(displayInfo);
-      });
+      })
       .catch((err) => {
         res.status(500).send('Cannot load the database');
       });
@@ -26,11 +26,11 @@ class StudentsController {
   static getAllStudentsByMajor(req, res) {
     const major = req.params.major;
     const parameters = ['CS', 'SWE'];
-    if parameters.includes(major) {
+    if (parameters.includes(major)) {
       readDatabase('database.csv')
         .then((data) => {
           const names = data[major];
-          const joinedList = names.join(',');
+          const joinedList = names.join(', ');
           const info = `List: ${joinedList}`;
           res.status(200).send(info);
         })
@@ -43,4 +43,4 @@ class StudentsController {
   }
 }
 
-module.exports = studentsController;
+module.exports = StudentsController;

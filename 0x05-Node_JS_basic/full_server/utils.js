@@ -29,12 +29,4 @@ const readDatabase = (filePath) => new Promise((resolve, reject) => {
   });
 });
 
-readDatabase('database.csv')
-  .then(data => {
-    console.log(data);
-  })
-  .catch(err => {
-    console.log(err.toString);
-  })
-
 module.exports = readDatabase;
