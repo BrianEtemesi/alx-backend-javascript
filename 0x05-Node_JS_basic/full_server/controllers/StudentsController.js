@@ -5,7 +5,7 @@ const readDatabase = require('../utils');
 class StudentsController {
   static getAllStudents(req, res) {
     const info = ['This is the list of our students'];
-    readDatabase('database.cs')
+    readDatabase('database.csv')
       .then((data) => {
         const fields = Object.keys(data);
         fields.forEach((field) => {
@@ -27,7 +27,7 @@ class StudentsController {
     const { major } = req.params;
     const parameters = ['CS', 'SWE'];
     if (parameters.includes(major)) {
-      readDatabase('database.cs')
+      readDatabase('database.csv')
         .then((data) => {
           const names = data[major];
           const joinedList = names.join(', ');
