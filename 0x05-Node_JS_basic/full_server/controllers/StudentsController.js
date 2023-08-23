@@ -5,7 +5,7 @@ const readDatabase = require('../utils');
 class StudentsController {
   static getAllStudents(req, res) {
     const info = ['This is the list of our students'];
-    readDatabase('database.csv')
+    readDatabase('database.cs')
       .then((data) => {
         const fields = Object.keys(data);
         fields.forEach((field) => {
@@ -19,7 +19,7 @@ class StudentsController {
         res.status(200).send(displayInfo);
       })
       .catch((err) => {
-        res.status(500).send(err.toString());
+        res.status(500).send(err instanceof Error ? err.message : err.toString());
       });
   }
 
@@ -27,7 +27,7 @@ class StudentsController {
     const { major } = req.params;
     const parameters = ['CS', 'SWE'];
     if (parameters.includes(major)) {
-      readDatabase('database.csv')
+      readDatabase('database.cs')
         .then((data) => {
           const names = data[major];
           const joinedList = names.join(', ');
@@ -35,7 +35,7 @@ class StudentsController {
           res.status(200).send(info);
         })
         .catch((err) => {
-          res.status(500).send(err.toString());
+          res.status(500).send(err instanceof Error ? err.message : err.toString());
         });
     } else {
       res.status(500).send('Major parameter must be CS or SWE');
