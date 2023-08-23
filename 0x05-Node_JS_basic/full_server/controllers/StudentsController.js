@@ -4,7 +4,7 @@ const readDatabase = require('../utils');
 
 class StudentsController {
   static getAllStudents(req, res) {
-    const info = ['This is the list of our students']
+    const info = ['This is the list of our students'];
     readDatabase('database.csv')
       .then((data) => {
         const fields = Object.keys(data);
@@ -19,12 +19,12 @@ class StudentsController {
         res.status(200).send(displayInfo);
       })
       .catch((err) => {
-        res.status(500).send('Cannot load the database');
+        res.status(500).send(err.toString());
       });
   }
 
   static getAllStudentsByMajor(req, res) {
-    const major = req.params.major;
+    const { major } = req.params;
     const parameters = ['CS', 'SWE'];
     if (parameters.includes(major)) {
       readDatabase('database.csv')
@@ -35,10 +35,10 @@ class StudentsController {
           res.status(200).send(info);
         })
         .catch((err) => {
-          res.status(500).send('Cannot load the database');
-        })
+          res.status(500).send(err.toString());
+        });
     } else {
-      res.status(500).send('Major parameter must be CS or SWE') ; 
+      res.status(500).send('Major parameter must be CS or SWE');
     }
   }
 }
