@@ -23,5 +23,9 @@ describe('calculateNumber', function() {
   it('rounds & sum; second fractional numbers', function() {
     assert.strictEqual(calculateNumber(1.0, 3.7), 5);
   });
+
+  it('rounds & sum; fractional numbers w trailing 9s', function() {
+    assert.strictEqual(calculateNumber(2.0999, 3.7999), 6);
+  });
 });
 
